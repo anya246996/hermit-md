@@ -41,30 +41,33 @@ Function({
 			commandslist[command.type].push((match.length >= 3 ? (HANDLER + mmatch) : command.pattern).trim())
 		}
 	})
-	let msg = `╭━━━〔 ${BOT_INFO.split(";")[0]} ⁩〕━━━┈⊷
-┃✵╭──────────────
-┃✵│ Owner : ${BOT_INFO.split(";")[1]}
-┃✵│ User : ${m.pushName.replace( /[\r\n]+/gm, "" )}
-┃✵│ Plugins : ${commands.length}
-┃✵│ Runtime : ${runtime(process.uptime())}
-┃✵│ Mode : ${MODE}
-┃✵│ Platform : ${os.platform()}
-┃✵│ Ram : ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
-┃✵│ Version : ${VERSION}
-┃✵╰──────────────
-╰━━━━━━━━━━━━━━━┈⊷
+	let msg = `*┌────────❯❯❯ 𝗤𝗨𝗘𝗘𝗡 𝗕𝗛𝗔𝗦𝗛𝗜 𝗠𝗗 ❮❮❮*
+*│*
+*│➛ ᴄɪɴᴇᴍᴀ ʜᴏᴜꜱᴇ ᴘʀᴏᴜᴅʟʏ ᴘʀᴇꜱᴇɴᴛ*
+*│*
+*│➛ ᴍᴀᴋᴇʀ :* ᴏꜰᴄ ʙʜᴀꜱʜɪ
+*│*
+*│➛ ᴜꜱᴇʀ :* ${BOT_INFO.split(";")[1]}
+*│*
+*│➛ ᴍᴏᴅᴇ :* ᴘʀɪᴠᴀᴛᴇ
+*│*
+*│➛ ʀᴜɴᴛɪᴍᴇ :* ${runtime(process.uptime())}
+*│*
+*│➛ ᴘʟᴀᴛꜰᴏʀᴍ :* ${os.platform()}
+*│*
+*│➛ ʀᴀᴍ :* ${formatp(os.totalmem() - os.freemem())} / ${formatp(os.totalmem())}
+*└────────────────────────────────*
 `
 	for (const command in commandslist) {
-		msg += `╭─────────────┈⊷
+		
 `
-		msg += `│ 「 *${await Fancy(command.toUpperCase(), 32)}* 」 `
-		msg += `╰┬────────────┈⊷\n┌┤\n`
+		msg +=`┌────────❯❯❯ *${await Fancy(command.toUpperCase(), 32)} CMD*`
+		msg += ` `
 		for (const plugin of commandslist[command])
-			msg += `││◦➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
-		msg += `│╰────────────┈⊷
+			msg += `│➛ ${await Fancy(plugin.toLowerCase(), 32)}\n`
+		msg +=`└────────────────────────────────
 `
-		msg += `╰─────────────┈⊷
-`
+
 	}
 	await message.send(msg);
 	/* var img = await parsedUrl(BOT_INFO)
